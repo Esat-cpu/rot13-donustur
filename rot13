@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+while getopts 'h' flag; do
+	case "$flag" in
+		h)
+			echo "Kullanım:"
+			echo "   rot13 [metin]"
+			exit 0
+			;;
+	esac
+done
+
+
+if [ -n "$2" ]; then
+	echo "Birden fazla metin girdisi işlenmez." >&2
+fi
+
+
+metin="$1"
+
+tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< $metin
