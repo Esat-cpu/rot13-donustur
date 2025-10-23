@@ -11,11 +11,5 @@ while getopts 'h' flag; do
 done
 
 
-if [ -n "$2" ]; then
-    echo "Birden fazla metin girdisi işlenmez." >&2
-fi
+tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< "$@"
 
-
-metin="$1"
-
-tr 'A-Za-z' 'N-ZA-Mn-za-m' <<< $metin
